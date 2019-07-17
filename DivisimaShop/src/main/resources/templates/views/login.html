@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="/views/layout :: head">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<header th:replace="/views/layout :: header"></header>
+	<!-- checkout section  -->
+	<section class="checkout-section spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 order-2 order-lg-1">
+					<form th:action="@{/cliente/login}" method="post" class="checkout-form">
+						<div class="cf-title">LOGIN</div>
+							<div class="row address-inputs">
+							<div class="col-md-6">
+								<label for="email">Email</label>
+								<input name="email" id="email" type="text" placeholder="usuario">
+							</div>
+							<div class="col-md-6">
+								<label for="email">Contrasenia</label>
+								<input name="password" id="password" type="text" placeholder="contrasenia">
+							</div>
+						</div>
+						<button type="submit" class="site-btn submit-order-btn">Entrar</button>
+					</form>
+					<span th:text="${error}"></span>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- checkout section end -->
+
+
+<section th:replace="/views/layout :: footer"></section>
+</body>
+</html>

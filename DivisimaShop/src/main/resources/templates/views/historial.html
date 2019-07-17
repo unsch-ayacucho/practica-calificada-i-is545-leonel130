@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="/views/layout :: head">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<header th:replace="/views/layout :: header"></header>
+<div>
+
+	<!-- Page info -->
+	<div class="page-top-info">
+		<div class="container">
+			<h4>Pedidos</h4>
+			<div class="site-pagination">
+				<a href="">Home</a> /
+				<a th:href="@{/index}">Pedidos</a>
+			</div>
+		</div>
+	</div>
+	<!-- Page info end -->
+
+
+	<!-- cart section end -->
+	<section class="cart-section spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="cart-table">
+						<h3>Tus Pedidos</h3>
+						<div class="cart-table-warp">
+							<table>
+							<thead>
+								<tr>
+									<th class="quy-col">orden</th>
+									<th class="size-col">dia</th>
+									<th class="quy-th">total</th>
+									<th class="size-th">estado</th>
+									<th class="total-th">accion</th>
+								</tr>
+							</thead>
+							<tbody>
+							<th:block th:each="i:${detalle}">
+								<tr>
+									<td class="quy-col">	
+										<div class="quantity">
+											<p th:text="${i.idPedido}"></p>
+										</div>
+									</td>
+									<td class="quy-col">
+										<div class="quantity">
+											<p th:text="${i.fechaPedido}"></p>
+										</div>
+									</td>
+									
+									<td class="total-col"><h4 th:text="${i.total}"></h4></td>
+									<td class="size-col"><h4 th:text="${i.estadopedido.nombre}"></h4></td>
+									<td class="total-col"><a th:href="@{'/pedido/detalle/'+${i.idPedido}}"><i class="fa fa-eye"></i></a></td>
+								</tr>
+								</th:block>
+							</tbody>
+							
+						</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- cart section end -->
+
+	<!-- Related product section -->
+	<section class="related-product-section">
+		<div class="container">
+			<div class="section-title text-uppercase">
+				<h2>Continue Shopping</h2>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-sm-6">
+					<div class="product-item">
+						<div class="pi-pic">
+							<div class="tag-new">New</div>
+							<img src="./img/product/2.jpg" alt="">
+							<div class="pi-links">
+								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+							</div>
+						</div>
+						<div class="pi-text">
+							<h6>$35,00</h6>
+							<p>Black and White Stripes Dress</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="product-item">
+						<div class="pi-pic">
+							<img src="./img/product/5.jpg" alt="">
+							<div class="pi-links">
+								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+							</div>
+						</div>
+						<div class="pi-text">
+							<h6>$35,00</h6>
+							<p>Flamboyant Pink Top </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="product-item">
+						<div class="pi-pic">
+							<img src="./img/product/9.jpg" alt="">
+							<div class="pi-links">
+								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+							</div>
+						</div>
+						<div class="pi-text">
+							<h6>$35,00</h6>
+							<p>Flamboyant Pink Top </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="product-item">
+						<div class="pi-pic">
+							<img src="./img/product/1.jpg" alt="">
+							<div class="pi-links">
+								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+							</div>
+						</div>
+						<div class="pi-text">
+							<h6>$35,00</h6>
+							<p>Flamboyant Pink Top </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Related product section end -->
+
+
+
+
+</div>
+<section th:replace="/views/layout :: footer"></section>
+</body>
+</html>

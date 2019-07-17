@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="/views/layout :: head">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<header th:replace="/views/layout :: header"></header>
+<div>
+
+	<!-- Page info -->
+	<div class="page-top-info">
+		<div class="container">
+			<h4>HISTORIAL</h4>
+			<div class="site-pagination">
+				<a href="/">Home</a> /
+				<a href="#">PEDIDOS</a>
+			</div>
+		</div>
+	</div>
+	<!-- Page info end -->
+
+
+	<!-- cart section end -->
+	<section class="cart-section spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="cart-table">
+						<h3>Tus productos de tu pedido</h3>
+						<div class="cart-table-warp">
+							<table>
+							<thead>
+								<tr>
+									<th class="quy-col">NUMERO </th>
+									<th class="size-col">NOMBRE DEL PRODUCTO</th>
+									<th class="quy-th">PRECIO</th>
+									<th class="size-th">CANTIDAD</th>
+									<th class="size-th">TOTAL</th>
+								</tr>
+							</thead>
+							<tbody>
+							<th:block th:each="i:${pedidodetalle}">
+								<tr>
+									<td class="quy-col">	
+										<div class="quantity">
+											<p th:text="${i.idProductoPedido}"></p>
+										</div>
+									</td>
+									<td class="quy-col">
+										<div class="quantity">
+											<p th:text="${i.producto.nombre}"></p>
+										</div>
+									</td>
+									
+									<td class="total-col"><h4>$&nbsp;&nbsp;<span th:text="${i.producto.precio}"></span></h4></td>
+									<td class="size-col"><h4 th:text="${i.cantidad}"></h4></td>
+									<td class="size-col"><h4>$&nbsp;&nbsp;<span th:text="${i.producto.precio*i.cantidad}"></span></h4></td>
+								</tr>
+								</th:block>
+							</tbody>
+							
+						</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- cart section end -->
+
+
+
+
+
+</div>
+<section th:replace="/views/layout :: footer"></section>
+</body>
+</html>
